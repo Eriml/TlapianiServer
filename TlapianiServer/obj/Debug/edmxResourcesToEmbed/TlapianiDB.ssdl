@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TLAPIANIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DISPOSITIVO">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="No_Serie" Type="varchar" MaxLength="30" />
+    <Property Name="Tipo" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="Sujeto" Type="int" />
+  </EntityType>
+  <EntityType Name="HORARIO">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="Sujeto" Type="int" />
+    <Property Name="Hora" Type="time" Precision="7" />
+    <Property Name="Tipo" Type="varchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="LECTOR">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="20" />
+    <Property Name="TIPO" Type="varchar" MaxLength="5" />
+    <Property Name="Marca" Type="varchar" MaxLength="20" />
+    <Property Name="No_Serie" Type="varchar" MaxLength="30" />
+    <Property Name="Tipo_Dispositivo" Type="varchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="REGISTRO">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="Sujeto" Type="int" />
+    <Property Name="Dispositivo" Type="int" />
+    <Property Name="Lector" Type="int" />
+    <Property Name="Fecha" Type="date" />
+    <Property Name="Hora" Type="time" Precision="7" />
+    <Property Name="Tipo" Type="varchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="RELACION_SUJETO_USUARIO">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="Usuario" Type="varchar" MaxLength="20" />
+    <Property Name="Sujeto" Type="int" />
+  </EntityType>
+  <EntityType Name="SUJETO">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ApellidoP" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ApellidoM" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USUARIO">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ApellidoP" Type="varchar" MaxLength="20" />
+    <Property Name="ApellidoM" Type="varchar" MaxLength="20" />
+    <Property Name="Tipo" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="Tutor" Type="bit" Nullable="false" />
+    <Property Name="Clave" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Telefono" Type="varchar" MaxLength="20" />
+    <Property Name="Celular" Type="varchar" MaxLength="20" />
+    <Property Name="Calle" Type="varchar" MaxLength="20" />
+    <Property Name="Colonia" Type="varchar" MaxLength="20" />
+    <Property Name="Numero" Type="varchar" MaxLength="20" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <Association Name="FK__DISPOSITI__Sujet__2A164134">
+    <End Role="SUJETO" Type="Self.SUJETO" Multiplicity="0..1" />
+    <End Role="DISPOSITIVO" Type="Self.DISPOSITIVO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SUJETO">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DISPOSITIVO">
+        <PropertyRef Name="Sujeto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HORARIO__Sujeto__395884C4">
+    <End Role="SUJETO" Type="Self.SUJETO" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="HORARIO" Type="Self.HORARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SUJETO">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="HORARIO">
+        <PropertyRef Name="Sujeto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__REGISTRO__Dispos__339FAB6E">
+    <End Role="DISPOSITIVO" Type="Self.DISPOSITIVO" Multiplicity="0..1" />
+    <End Role="REGISTRO" Type="Self.REGISTRO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DISPOSITIVO">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="REGISTRO">
+        <PropertyRef Name="Dispositivo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__REGISTRO__Lector__3493CFA7">
+    <End Role="LECTOR" Type="Self.LECTOR" Multiplicity="0..1" />
+    <End Role="REGISTRO" Type="Self.REGISTRO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LECTOR">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="REGISTRO">
+        <PropertyRef Name="Lector" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__REGISTRO__Sujeto__32AB8735">
+    <End Role="SUJETO" Type="Self.SUJETO" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="REGISTRO" Type="Self.REGISTRO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SUJETO">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="REGISTRO">
+        <PropertyRef Name="Sujeto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RELACION___Sujet__25518C17">
+    <End Role="SUJETO" Type="Self.SUJETO" Multiplicity="0..1" />
+    <End Role="RELACION_SUJETO_USUARIO" Type="Self.RELACION_SUJETO_USUARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SUJETO">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="RELACION_SUJETO_USUARIO">
+        <PropertyRef Name="Sujeto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RELACION___Usuar__245D67DE">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="RELACION_SUJETO_USUARIO" Type="Self.RELACION_SUJETO_USUARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="RELACION_SUJETO_USUARIO">
+        <PropertyRef Name="Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TLAPIANIModelStoreContainer">
+    <EntitySet Name="DISPOSITIVO" EntityType="Self.DISPOSITIVO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HORARIO" EntityType="Self.HORARIO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LECTOR" EntityType="Self.LECTOR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="REGISTRO" EntityType="Self.REGISTRO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RELACION_SUJETO_USUARIO" EntityType="Self.RELACION_SUJETO_USUARIO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SUJETO" EntityType="Self.SUJETO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__DISPOSITI__Sujet__2A164134" Association="Self.FK__DISPOSITI__Sujet__2A164134">
+      <End Role="SUJETO" EntitySet="SUJETO" />
+      <End Role="DISPOSITIVO" EntitySet="DISPOSITIVO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HORARIO__Sujeto__395884C4" Association="Self.FK__HORARIO__Sujeto__395884C4">
+      <End Role="SUJETO" EntitySet="SUJETO" />
+      <End Role="HORARIO" EntitySet="HORARIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__REGISTRO__Dispos__339FAB6E" Association="Self.FK__REGISTRO__Dispos__339FAB6E">
+      <End Role="DISPOSITIVO" EntitySet="DISPOSITIVO" />
+      <End Role="REGISTRO" EntitySet="REGISTRO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__REGISTRO__Lector__3493CFA7" Association="Self.FK__REGISTRO__Lector__3493CFA7">
+      <End Role="LECTOR" EntitySet="LECTOR" />
+      <End Role="REGISTRO" EntitySet="REGISTRO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__REGISTRO__Sujeto__32AB8735" Association="Self.FK__REGISTRO__Sujeto__32AB8735">
+      <End Role="SUJETO" EntitySet="SUJETO" />
+      <End Role="REGISTRO" EntitySet="REGISTRO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RELACION___Sujet__25518C17" Association="Self.FK__RELACION___Sujet__25518C17">
+      <End Role="SUJETO" EntitySet="SUJETO" />
+      <End Role="RELACION_SUJETO_USUARIO" EntitySet="RELACION_SUJETO_USUARIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RELACION___Usuar__245D67DE" Association="Self.FK__RELACION___Usuar__245D67DE">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="RELACION_SUJETO_USUARIO" EntitySet="RELACION_SUJETO_USUARIO" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

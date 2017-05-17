@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="75eb9ec4c45c4da1b458188babb1f3ad" Name="Diagram1">
+        <EntityTypeShape EntityType="TLAPIANIModel.DISPOSITIVO" Width="1.5" PointX="4.125" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLAPIANIModel.HORARIO" Width="1.5" PointX="2.5" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLAPIANIModel.LECTOR" Width="1.5" PointX="8.125" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLAPIANIModel.REGISTRO" Width="1.5" PointX="6.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLAPIANIModel.RELACION_SUJETO_USUARIO" Width="1.5" PointX="2.125" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLAPIANIModel.SUJETO" Width="1.5" PointX="4.375" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLAPIANIModel.USUARIO" Width="1.5" PointX="0.5" PointY="1.25" IsExpanded="true" />
+        <AssociationConnector Association="TLAPIANIModel.FK__DISPOSITI__Sujet__2A164134" ManuallyRouted="false" />
+        <AssociationConnector Association="TLAPIANIModel.FK__REGISTRO__Dispos__339FAB6E" ManuallyRouted="false" />
+        <AssociationConnector Association="TLAPIANIModel.FK__HORARIO__Sujeto__395884C4" ManuallyRouted="false" />
+        <AssociationConnector Association="TLAPIANIModel.FK__REGISTRO__Lector__3493CFA7" ManuallyRouted="false" />
+        <AssociationConnector Association="TLAPIANIModel.FK__REGISTRO__Sujeto__32AB8735" ManuallyRouted="false" />
+        <AssociationConnector Association="TLAPIANIModel.FK__RELACION___Sujet__25518C17" ManuallyRouted="false" />
+        <AssociationConnector Association="TLAPIANIModel.FK__RELACION___Usuar__245D67DE" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

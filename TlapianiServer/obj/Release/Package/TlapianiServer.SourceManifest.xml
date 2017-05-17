@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <appHostConfig path="WebSite1" />
+  <contentPath path="C:\Users\eriml\documents\visual studio 2017\Projects\TlapianiServer\TlapianiServer\obj\Release\Package\PackageTmp" />
+</sitemanifest>

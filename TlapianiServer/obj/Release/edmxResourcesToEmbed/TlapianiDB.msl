@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TLAPIANIModelStoreContainer" CdmEntityContainer="TLAPIANIEntities">
+    <EntitySetMapping Name="DISPOSITIVOes">
+      <EntityTypeMapping TypeName="TLAPIANIModel.DISPOSITIVO">
+        <MappingFragment StoreEntitySet="DISPOSITIVO">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="No_Serie" ColumnName="No_Serie" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Sujeto" ColumnName="Sujeto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HORARIOs">
+      <EntityTypeMapping TypeName="TLAPIANIModel.HORARIO">
+        <MappingFragment StoreEntitySet="HORARIO">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Sujeto" ColumnName="Sujeto" />
+          <ScalarProperty Name="Hora" ColumnName="Hora" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LECTORs">
+      <EntityTypeMapping TypeName="TLAPIANIModel.LECTOR">
+        <MappingFragment StoreEntitySet="LECTOR">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+          <ScalarProperty Name="Marca" ColumnName="Marca" />
+          <ScalarProperty Name="No_Serie" ColumnName="No_Serie" />
+          <ScalarProperty Name="Tipo_Dispositivo" ColumnName="Tipo_Dispositivo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="REGISTROes">
+      <EntityTypeMapping TypeName="TLAPIANIModel.REGISTRO">
+        <MappingFragment StoreEntitySet="REGISTRO">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Sujeto" ColumnName="Sujeto" />
+          <ScalarProperty Name="Dispositivo" ColumnName="Dispositivo" />
+          <ScalarProperty Name="Lector" ColumnName="Lector" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Hora" ColumnName="Hora" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RELACION_SUJETO_USUARIO">
+      <EntityTypeMapping TypeName="TLAPIANIModel.RELACION_SUJETO_USUARIO">
+        <MappingFragment StoreEntitySet="RELACION_SUJETO_USUARIO">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Sujeto" ColumnName="Sujeto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SUJETOes">
+      <EntityTypeMapping TypeName="TLAPIANIModel.SUJETO">
+        <MappingFragment StoreEntitySet="SUJETO">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ApellidoP" ColumnName="ApellidoP" />
+          <ScalarProperty Name="ApellidoM" ColumnName="ApellidoM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIOs">
+      <EntityTypeMapping TypeName="TLAPIANIModel.USUARIO">
+        <MappingFragment StoreEntitySet="USUARIO">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ApellidoP" ColumnName="ApellidoP" />
+          <ScalarProperty Name="ApellidoM" ColumnName="ApellidoM" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Tutor" ColumnName="Tutor" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+          <ScalarProperty Name="Calle" ColumnName="Calle" />
+          <ScalarProperty Name="Colonia" ColumnName="Colonia" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
